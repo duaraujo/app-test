@@ -2,14 +2,15 @@ const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
-const sharp = require('sharp');
+//const sharp = require('sharp');
+
 
 const app = express();
 app.use(express.json());
 const PORT = 3000;
 
 app.use(cors({
-  origin: 'http://192.168.0.99:4200',
+  origin: 'http://localhost:4200',
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));
@@ -207,12 +208,13 @@ app.get('/json-files', async (req, res) => {
       const imageBuffer = fs.readFileSync(imagePath);
 
       // Usando sharp para redimensionar e comprimir a imagem
-      const resizedImageBuffer = await sharp(imageBuffer)
-        .resize({ width: 300 }) // Redimensiona a largura para 500px, mantendo a proporção
-        .jpeg({ quality: 40 })  // Converte para JPEG e reduz a qualidade para 70%
-        .toBuffer();
+      // const resizedImageBuffer = await sharp(imageBuffer)
+      //   .resize({ width: 300 }) // Redimensiona a largura para 500px, mantendo a proporção
+      //   .jpeg({ quality: 40 })  // Converte para JPEG e reduz a qualidade para 70%
+      //   .toBuffer();
 
-      return resizedImageBuffer.toString('base64');
+        return imageBuffer.toString('base64')
+      //return resizedImageBuffer.toString('base64');
     } catch (error) {
       console.error(`Erro ao converter a imagem para base64: ${imagePath}`, error);
       return null;
