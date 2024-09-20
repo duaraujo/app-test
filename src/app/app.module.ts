@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CoreModule,
     SharedModule,
     CustomMaterialModule.forRoot(),
     AppRoutingModule
