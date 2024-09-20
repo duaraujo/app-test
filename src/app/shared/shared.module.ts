@@ -5,10 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LimitToPipe } from './pipes/limit-to.pipe';
 import { YesNoPipe } from './pipes/yes-no.pipe';
 import { LayoutComponent } from './layout/layout.component';
+import { CustomMaterialModule } from '../custom-material/custom-material.module';
 
 @NgModule({
     imports: [
         RouterModule,
+        CustomMaterialModule,
         FormsModule,
         ReactiveFormsModule,
     ],
@@ -20,6 +22,7 @@ import { LayoutComponent } from './layout/layout.component';
     exports: [
         FormsModule,
         ReactiveFormsModule,
+        CustomMaterialModule,
         LimitToPipe,
         YesNoPipe
     ]
