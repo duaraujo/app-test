@@ -1,6 +1,5 @@
 <div class="navbar-container" [class.example-is-mobile]="mobileQuery.matches">
 
-
   <mat-toolbar class="navbar" color="primary">
 
     <button mat-icon-button (click)="snav.toggle()">
@@ -21,7 +20,7 @@
         {{userName}}
       </span>
     </button>
-
+    
     <mat-menu #userMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
 
       <a mat-menu-item [routerLink]="['/auth/login']">
@@ -36,6 +35,7 @@
   <mat-sidenav-container class="navbar-sidenav-container">
     <mat-sidenav #snav [opened]="!mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="sidenav">
+
       <mat-nav-list>
         <h3 mat-subheader>Home</h3>
 
@@ -45,7 +45,6 @@
           </mat-icon>
           <p mat-line> Dashboard </p>
         </a>
-
         <a mat-list-item [routerLink]="['/inventory']" routerLinkActive="active">
           <mat-icon mat-list-icon>
             dataset
@@ -53,25 +52,24 @@
           <p mat-line> Inventario </p>
         </a>
 
+        <a mat-list-item [routerLink]="['/auth/login']">
+          <mat-icon mat-list-icon>exit_to_app</mat-icon>
+          <p mat-line> Sair </p>
+        </a>
+
       </mat-nav-list>
+
     </mat-sidenav>
 
     <mat-sidenav-content class="sidenav-content">
       <div class="progress-bar-container">
-
+        <mat-progress-bar color="accent" mode="indeterminate" *ngIf="spinnerService.visibility | async">
+        </mat-progress-bar>
       </div>
 
       <router-outlet></router-outlet>
 
     </mat-sidenav-content>
-
   </mat-sidenav-container>
 
-
 </div>
-
-
-
-
-
-<router-outlet></router-outlet>

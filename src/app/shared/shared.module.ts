@@ -6,6 +6,7 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
 import { YesNoPipe } from './pipes/yes-no.pipe';
 import { LayoutComponent } from './layout/layout.component';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     imports: [
@@ -13,6 +14,7 @@ import { CustomMaterialModule } from '../custom-material/custom-material.module'
         CustomMaterialModule,
         FormsModule,
         ReactiveFormsModule,
+        FlexLayoutModule
     ],
     declarations: [
         LimitToPipe,
@@ -22,6 +24,7 @@ import { CustomMaterialModule } from '../custom-material/custom-material.module'
     exports: [
         FormsModule,
         ReactiveFormsModule,
+        FlexLayoutModule,
         CustomMaterialModule,
         LimitToPipe,
         YesNoPipe
