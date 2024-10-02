@@ -10,7 +10,7 @@ app.use(express.json());
 const PORT = 3000;
 
 app.use(cors({
-  origin: 'http://localhost:4200',
+  origin: 'http://192.168.0.99:4200',
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));
@@ -22,8 +22,10 @@ app.use(cors({
 
 
 app.get('/folders', (req, res) => {
-  const pathDefault = '/home/eduardo_araujo/Documentos/project';
+  //const pathDefault = '/home/eduardo_araujo/Documentos/project';
+  const pathDefault = '/storage/emulated/0/Download';
   const directoryPath = `${pathDefault}/${req.query.directoryPath}`;
+  console.log(directoryPath)
   if (!directoryPath) {
     return res.status(400).send('Path is required');
   }
