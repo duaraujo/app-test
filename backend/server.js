@@ -16,7 +16,9 @@ app.use(cors({
 }));
 
 
-
+app.get('/teste', (req, res) => {
+  return res.status(200).send(`Hello world 123`);
+});
 
 
 
