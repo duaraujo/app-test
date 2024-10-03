@@ -10,7 +10,7 @@ app.use(express.json());
 const PORT = 3000;
 
 app.use(cors({
-  origin: 'http://192.168.0.99:4200',
+  origin: '*',
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));
@@ -199,7 +199,8 @@ app.post('/create-file', (req, res) => {
 
 
 app.get('/json-files', async (req, res) => {
-  const pathDefault = '/home/eduardo_araujo/Documentos/project';
+  //const pathDefault = '/home/eduardo_araujo/Documentos/project';
+  const pathDefault = '/storage/emulated/0/Download';
   const directoryPath = `${pathDefault}/${req.query.directoryPath}`;
   const analystName = req.query.analystName;
   const startDate = req.query.startDate ? new Date(req.query.startDate) : null;
